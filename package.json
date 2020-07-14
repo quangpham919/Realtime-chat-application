@@ -1,0 +1,50 @@
+{
+  "name": "realtime-chat-app",
+  "version": "1.0.0",
+  "description": "Realtime chat application",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clear && babel src -d dist",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/index.js",
+    "dev": "nodemon dist/index.js",
+    "clear": "rm -rf dist"
+  },
+  "keywords": [],
+  "author": "Quang Pham",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.1.0",
+    "babel-preset-env": "^1.7.0",
+    "colors": "^1.4.0",
+    "eslint": "^7.4.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.27.0",
+    "mongoose": "^5.9.23",
+    "morgan": "^1.10.0",
+    "socket.io": "^2.3.0"
+  }
+}

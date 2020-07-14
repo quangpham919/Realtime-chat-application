@@ -1,0 +1,11 @@
+{
+  "env": {
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "extends": ["eslint:recommended", "prettier", "prettier/standard"],
+  "plugins": ["prettier"]
+}
