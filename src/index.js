@@ -37,6 +37,9 @@ app.use("/api/chat", chatRouter);
 app.use("/api/admin", adminRouter);
 app.use("/api/event", eventRouter);
 
+app.use("/", (req,res)=>{
+  res.send("<h1> Your API is working :) </h1>");
+})
 //CREATE SERVER
 const httpServer = http.createServer(app);
 
