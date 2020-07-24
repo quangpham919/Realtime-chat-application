@@ -1,3 +1,3 @@
-# Realtime-chat-application
-An chat application built by MERN stack and used socket.io to handle communication between client and server 
+# Realtime Chat Application API 
+An chat application api built by nodejs, express framework and socket.io to handle communication between client and server 
 ### API link: https://quang-api-chat.herokuapp.com/
