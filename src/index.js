@@ -46,16 +46,15 @@ const httpServer = http.createServer(app);
 //INITIALIZE A SOCKET IO connection ON APP
 const io = socketIO(httpServer);
 io.on("connection", (socket) => {
-  console.log("There is a new connection");
-
+   console.log("There is a new connection");
+  
   //BROADCAST THE MESSAGE
   socket.on("chat message", (msg) => {
-    io.on(msg.room).emit("chat message", msg);
+    io.to(msg.room).emit("chat message", msg); 
   });
 
   //INDICATE A USER JOINED THE APP
   socket.on("user joined", (user) => {
-    console.log(`A user has joined: ${JSON.stringify(user)}`);
     //Broadcast user
     io.emit("user joined", user);
   });
@@ -66,17 +65,16 @@ io.on("connection", (socket) => {
   });
 
   //JOINED A ROOM
-  socket.join("join room", (joinRoomEvent) => {
-    const { room } = joinRoomEvent;
-    console.log(`Joind room: ${JSON.stringify(joinRoomEvent)}`);
+  socket.on("join room", (joinRoomEvent) => {
+    const {room} = joinRoomEvent
     socket.join(room);
     io.to(room).emit("join room", joinRoomEvent);
+    
   });
 
   //LEAVE ROOM
-  socket.leave("leave room", (leaveRoomEvent) => {
-    const { room } = leaveRoomEvent;
-    console.log(`Leave room: ${JSON.stringify(leaveRoomEvent)}`);
+  socket.on("leave room", (leaveRoomEvent) => {
+    const {room} = leaveRoomEvent;
     io.to(room).emit("leave room", leaveRoomEvent);
     socket.leave(room);
   });

@@ -96,12 +96,9 @@ export const login = async (req, res) => {
 export const join = async (req, res) => {
   try {
     const userData = req.body;
-    const savedUser = await User.findOne({ name: userData.name }).lean().exec();
+    console.log(userData)
+    const savedUser = await User.findOneAndReplace({ name: userData.name },{name:userData.name},{upsert:true}).lean().exec();
     // If there is no matched user in db, create a new one
-    if (!savedUser) {
-      // eslint-disable-next-line no-undef
-      user = await User.create(userData);
-    }
     const token = await newToken(userData);
     return res.status(200).json({
       success: true,
